@@ -1,0 +1,31 @@
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+ 
+    <title>Breaking Bad y Better Call Saul </title>
+ 
+  	  {# Cargamos la librería #}
+	  {% load bootstrap4 %}
+ 
+	  {# CSS Bootstrap #}
+	  {% bootstrap_css %}
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+</nav>
+
+<body>
+
+    {% for elemento in llave %}
+        {% if elemento.season == temporada and elemento.series == serie%}   
+            <li><a href="{% url 'episodios' elemento.episode_id%}">{{elemento.title}}</a></li>
+        {% endif %}
+    {% endfor %}
+<a href="{% url 'index' %}">Volver a la página principal</a>
+</body>
